@@ -1,0 +1,11 @@
+{
+  "APP_NAME": {
+    "message": "Bitbucat"
+  },
+  "APP_DESCRIPTION": {
+    "message": "비트버켓을 Github 처럼 사용하게 해주는 앱입니다."
+  },
+  "SETTING": {
+    "message": "설정"
+  }
+}

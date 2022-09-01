@@ -1,0 +1,11 @@
+{
+  "APP_NAME": {
+    "message": "Bitbucat"
+  },
+  "APP_DESCRIPTION": {
+    "message": "This is an extension app that was created to use Bitbucket like Github."
+  },
+  "SETTING": {
+    "message": "Settings"
+  }
+}
