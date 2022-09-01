@@ -1,6 +1,6 @@
 import { defineManifest } from '@crxjs/vite-plugin'
 
-export default defineManifest(async (_env) => ({
+export default defineManifest(async (env) => ({
   name: '__MSG_APP_NAME__',
   description: '__MSG_APP_DESCRIPTION__',
   version: '0.0.0',
@@ -19,14 +19,20 @@ export default defineManifest(async (_env) => ({
     type: 'module',
   },
   content_scripts: [
-    // {
-    //   run_at: 'document_start',
-    //   matches: ['https://bitbucket.org/mantech/*/pull-requests'],
-    //   js: [
-    //     ...(env.mode === 'development' ? [] : ['public/js/webcomponent.js']),
-    //     'src/content/index.ts',
-    //   ],
-    // },
+    ...(env.mode === 'development'
+      ? []
+      : [
+          {
+            run_at: 'document_start',
+            matches: ['https://bitbucket.org/*'],
+            js: ['public/js/webcomponent.js'],
+          },
+        ]),
+    {
+      run_at: 'document_start',
+      matches: ['https://bitbucket.org/*'],
+      js: ['src/content/index.ts'],
+    },
   ],
   web_accessible_resources: [
     {
@@ -34,6 +40,6 @@ export default defineManifest(async (_env) => ({
       matches: [],
     },
   ],
-  permissions: ['storage'],
+  permissions: ['storage', 'webRequest', 'https://bitbucket.org/*/pull-requests/*'],
   host_permissions: [],
 }))

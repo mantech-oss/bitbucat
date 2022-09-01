@@ -1,34 +1,37 @@
 import { html, css, LitElement, unsafeCSS, TemplateResult } from 'lit'
-import { customElement } from 'lit/decorators.js'
+import { customElement, property } from 'lit/decorators.js'
 import { IconCog } from '../content/components/icons/icons'
+import { watch } from '../content/utils/watch'
 
 import tailwind from '../styles/tailwind.css?inline'
 
 @customElement('popup-main')
 export class PopupMain extends LitElement {
-  static styles = [
-    unsafeCSS(tailwind),
-    css`
-      main {
-        min-width: 500px;
-        padding: 1rem;
-      }
+  // # Properties
 
-      .outline-none-important {
-        outline: none !important;
-      }
-    `,
-  ]
+  @property({ type: Boolean })
+  enableDdayFeature = true
 
-  // # Properties  
+  // # Event handlers
 
-  // # Event handlers  
+  // # Lifecycle methods
 
-  // # Lifecycle methods  
+  connectedCallback(): void {
+    chrome.storage.local.get([`enableDdayFeature`], (result: any) => {
+      const { enableDdayFeature } = result
+      this.enableDdayFeature = enableDdayFeature
+    })
+    super.connectedCallback()
+  }
 
-  // # watch  
+  // # watch
+  @watch('enableDdayFeature', { waitUntilFirstUpdate: true })
+  async onWatchEnableDdayFeature(): Promise<void> {
+    chrome.storage.local.set({ enableDdayFeature: this.enableDdayFeature })
+  }
 
   render() {
+    const { enableDdayFeature } = this
     return html`
       <main data-theme="fantasy" class="bg-transparent">
         <div class="navbar bg-base-100 shadow-xl rounded-box flex item-center justify-between">
@@ -46,18 +49,36 @@ export class PopupMain extends LitElement {
             </li>
             <li class="w-full flex">
               <label class="label cursor-pointer">
-                <span class="label-text">Test</span>
+                <span class="label-text">${chrome.i18n.getMessage('PR_DDAY')}</span>
                 <input
+                  ?checked=${enableDdayFeature}
+                  @change=${(event: Event) => {
+                    this.enableDdayFeature = (event.target as HTMLInputElement).checked
+                  }}
                   type="checkbox"
                   class="toggle toggle-accent"
                 />
               </label>
-            </li>            
+            </li>
           </ul>
         </div>
-      </main>      
+      </main>
     `
   }
+
+  static styles = [
+    unsafeCSS(tailwind),
+    css`
+      main {
+        min-width: 500px;
+        padding: 1rem;
+      }
+
+      .outline-none-important {
+        outline: none !important;
+      }
+    `,
+  ]
 }
 
 declare global {
