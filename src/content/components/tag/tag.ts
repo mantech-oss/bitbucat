@@ -10,17 +10,22 @@ export class BitTag extends LitElement {
   @property({ type: Number })
   ddayNumber = 0
 
+  get ddayString(): string {
+    if (this.ddayNumber === 0) return 'New'
+    return `D-${this.ddayNumber}`
+  }
+
   render() {
-    const { ddayNumber, ddayColors } = this
-    return html`
-      <span class="badge ${ddayColors}" part="base">D-${ddayNumber}</span>
-    `
+    const { ddayString, ddayColors } = this
+    return html` <span class="badge ${ddayColors} text-white" part="base">${ddayString}</span> `
   }
 
   get ddayColors(): string {
     const { ddayNumber } = this
-    
-    switch(true) {
+
+    switch (true) {
+      case ddayNumber === 0:
+        return 'badge-info'
       case ddayNumber < 3:
         return 'badge-success'
       case ddayNumber <= 5:
