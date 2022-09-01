@@ -4,7 +4,7 @@ export default defineManifest(async (env) => ({
   name: '__MSG_APP_NAME__',
   description: '__MSG_APP_DESCRIPTION__',
   version: '0.0.0',
-  default_locale: 'ko',
+  default_locale: 'en',
   manifest_version: 3,
   icons: {
     128: 'img/logo-128.png',
