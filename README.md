@@ -10,7 +10,7 @@ This is an extension app that was created to use Bitbucket like Github.
 
 1. [x] PR D-Day
 
-![](https://user-images.githubusercontent.com/26294469/187975804-9da0f856-f8f5-455f-920f-33db67c24d6f.png)
+![](https://user-images.githubusercontent.com/26294469/187988212-6f5f4ba0-d802-4bef-9484-3d4a9ba17e0c.png)
 
 2. [ ] Combine commits and comments in a timeline ui.
 
@@ -22,9 +22,9 @@ This is an extension app that was created to use Bitbucket like Github.
 
 ### Impossible features
 
-1. [ ] [Multi-line comments](https://www.facebook.com/GitHub/videos/multi-line-comments-have-arrivedyou-can-now-highlight-multiple-lines-in-a-pull-r/2734085156602913/)
+1. [ ] [Multi-line comments](https://www.facebook.com/GitHub/videos/multi-line-comments-have-arrivedyou-can-now-highlight-multiple-lines-in-a-pull-r/2734085156602913/) - bitbucket not supported
 
-2. [ ] [Add Suggestions](https://egghead.io/lessons/github-add-suggestions-in-a-github-pr-review)
+2. [ ] [Add Suggestions](https://egghead.io/lessons/github-add-suggestions-in-a-github-pr-review) - bitbucket not supported
 
 ## Install
 
