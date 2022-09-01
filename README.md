@@ -8,6 +8,8 @@ This is an extension app that was created to use Bitbucket like Github.
 
 ### Features
 
+#### PR Review
+
 1. [x] PR D-Day
 
 ![](https://user-images.githubusercontent.com/26294469/187988212-6f5f4ba0-d802-4bef-9484-3d4a9ba17e0c.png)
@@ -19,6 +21,14 @@ This is an extension app that was created to use Bitbucket like Github.
 4. [ ] Taking out a hidden outdated comments.
 
 5. [ ] Synchronize comments with each update.
+
+#### Viewer
+
+1. [ ] Support asciidoc viewer.
+
+2. [ ] Support openapispec(swagger.json) viewer.
+
+3. [ ] Support mermaid Diagram viwer.
 
 ### Impossible features
 
